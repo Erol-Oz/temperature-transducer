@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            
+            
+        }
+        .ana{
+            margin-top: 200px;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 2px 2px 5px gray;
+        }
+        img{
+            width: 30px;
+            margin: 20px;
+        }
+        img:hover{
+            transform: rotate(20deg);
+        }
+        input{
+            margin: 15px;
+            width: 200px;
+            height: 25px;
+            border-radius: 25px;
+            border: none;
+            box-shadow: 1px 1px 5px black;
+        }
+        button{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            color: white;
+            border-radius: 25px;
+        }
+        button:hover{
+            box-shadow: 2px 2px 5px gray;
+            background-color: rgb(37, 37, 37);
+        }
+        h1{
+            text-shadow: 2px 2px 5px gray;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="ana">
+        <h1>SICAKLIK ÇEVİR</h1>
+        <img src="termo.png" alt="">
+        <p>celcius değer girin:</p>
+        <input type="text">
+        <button type="submit" onclick="cevir()">ÇEVİR</button>
+        
+    </div>
+   
+    <script>
+        function cevir(){
+            var ana=document.getElementsByClassName("ana")[0];
+            var input=document.getElementsByTagName("input")[0];
+            if(input.value){
+                ana.innerHTML=`<h1>SICAKLIK ÇEVİR</h1>
+                <img src="termo.png" alt="">
+                <p>celcius değer girin:</p>
+                <input type="text">
+                <button type="submit" onclick="cevir()">ÇEVİR</button>`
+                var p=document.createElement("p")
+                ana.appendChild(p)
+                p.innerHTML=`fahreneit: ${(input.value*1.8)+32}°F`
+                if(input.value>=35){
+                    ana.style.boxShadow="5px 25px 10px red"
+                }else if(input.value<=15){
+                    ana.style.boxShadow="5px 25px 10px lightblue"
+                }else{
+                    ana.style.boxShadow="5px 25px 10px #D79EF5"
+                }
+                input.value=""
+                
+            }
+          
+
+            
+        }
+    </script>
+</body>
+</html>
